@@ -44,15 +44,23 @@ Once connected, data exchange between Hercules and ESP32 is established over Eth
 When using PlatformIO with an ESP32-S3 board, the following configuration must be added to platformio.ini:
 
 [env:esp32-s3-devkitc-1]
-platform = espressif32
-board = esp32-s3-devkitc-1
-framework = arduino
-monitor_speed = 115200
-board_upload.flash_size = 4MB
-board_build.partitions = default.csv
-build_flags =
-  -DARDUINO_USB_CDC_ON_BOOT=1
-  -DBOARD_HAS_PSRAM
 
+platform = espressif32
+
+board = esp32-s3-devkitc-1
+
+framework = arduino
+
+monitor_speed = 115200
+
+board_upload.flash_size = 4MB
+
+board_build.partitions = default.csv
+
+build_flags =
+
+  -DARDUINO_USB_CDC_ON_BOOT=1
+  
+  -DBOARD_HAS_PSRAM
 
 These parameters ensure proper USB CDC behavior, serial communication, and PSRAM support for ESP32-S3 boards.
